@@ -85,18 +85,49 @@
   "outbounds": [
     {
       "type": "selector",
-      "tag": "proxy",
+      "tag": "🚀 节点选择",
       "outbounds": [
-        "auto",
+        "专线手动选择",
+        "临时手动选择",
+        "专线自动选择",
+        "临时自动选择",
+        "🌏 亚洲节点",
+        "🌍 欧美节点",
+        "🌐 其他节点",
+        "direct"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "专线手动选择",
+      "outbounds": [
         "direct",
-        "{REPLACE-OUTBOUNDS-PROXY}"
+        "{REPLACE-OUTBOUNDS-LINE-MANUAL}"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "临时手动选择",
+      "outbounds": [
+        "direct",
+        "{REPLACE-OUTBOUNDS-TEMPORARY-MANUAL}"
       ]
     },
     {
       "type": "urltest",
-      "tag": "auto",
+      "tag": "专线自动选择",
       "outbounds": [
-        "{REPLACE-OUTBOUNDS-AUTO}"
+        "{REPLACE-OUTBOUNDS-LINE-AUTO}"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "1m",
+      "tolerance": 50
+    },
+    {
+      "type": "urltest",
+      "tag": "临时自动选择",
+      "outbounds": [
+        "{REPLACE-OUTBOUNDS-TEMPORARY-AUTO}"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "1m",
@@ -104,74 +135,177 @@
     },
     {
       "type": "selector",
-      "tag": "OpenAI",
+      "tag": "🌏 亚洲节点",
       "outbounds": [
-        "proxy",
         "direct",
-        "{REPLACE-OUTBOUNDS-OPENAI}"
+        "{REPLACE-OUTBOUNDS-REGION-ASIA}"
       ]
     },
     {
       "type": "selector",
-      "tag": "Netflix",
+      "tag": "🌍 欧美节点",
       "outbounds": [
-        "proxy",
         "direct",
-        "{REPLACE-OUTBOUNDS-NETFLIX}"
+        "{REPLACE-OUTBOUNDS-REGION-GLOBAL}"
       ]
     },
     {
       "type": "selector",
-      "tag": "Disney",
+      "tag": "🌐 其他节点",
       "outbounds": [
-        "proxy",
         "direct",
-        "{REPLACE-OUTBOUNDS-DISNEY}"
+        "{REPLACE-OUTBOUNDS-REGION-OTHER}"
       ]
     },
     {
       "type": "selector",
-      "tag": "Google",
+      "tag": "💬 OpenAI",
       "outbounds": [
-        "proxy",
-        "direct",
-        "{REPLACE-OUTBOUNDS-GOOGLE}"
+        "🚀 节点选择",
+        "专线手动选择",
+        "临时手动选择",
+        "专线自动选择",
+        "临时自动选择",
+        "🌏 亚洲节点",
+        "🌍 欧美节点",
+        "🌐 其他节点",
+        "direct"
       ]
     },
     {
       "type": "selector",
-      "tag": "Microsoft",
+      "tag": "🎥 奈飞视频",
       "outbounds": [
-        "proxy",
-        "direct",
-        "{REPLACE-OUTBOUNDS-MICROSOFT}"
+        "🚀 节点选择",
+        "专线手动选择",
+        "临时手动选择",
+        "专线自动选择",
+        "临时自动选择",
+        "🌏 亚洲节点",
+        "🌍 欧美节点",
+        "🌐 其他节点",
+        "direct"
       ]
     },
     {
       "type": "selector",
-      "tag": "Telegram",
+      "tag": "📹 油管视频",
       "outbounds": [
-        "proxy",
-        "direct",
-        "{REPLACE-OUTBOUNDS-TELEGRAM}"
+        "🚀 节点选择",
+        "专线手动选择",
+        "临时手动选择",
+        "专线自动选择",
+        "临时自动选择",
+        "🌏 亚洲节点",
+        "🌍 欧美节点",
+        "🌐 其他节点",
+        "direct"
       ]
     },
     {
       "type": "selector",
-      "tag": "Twitter",
+      "tag": "🎮 游戏平台",
       "outbounds": [
-        "proxy",
-        "direct",
-        "{REPLACE-OUTBOUNDS-TWITTER}"
+        "🚀 节点选择",
+        "专线手动选择",
+        "临时手动选择",
+        "专线自动选择",
+        "临时自动选择",
+        "🌏 亚洲节点",
+        "🌍 欧美节点",
+        "🌐 其他节点",
+        "direct"
       ]
     },
     {
       "type": "selector",
-      "tag": "Apple",
+      "tag": "📲 电报消息",
       "outbounds": [
-        "proxy",
+        "🚀 节点选择",
+        "专线手动选择",
+        "临时手动选择",
+        "专线自动选择",
+        "临时自动选择",
+        "🌏 亚洲节点",
+        "🌍 欧美节点",
+        "🌐 其他节点",
+        "direct"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "Ⓜ️ 微软服务",
+      "outbounds": [
+        "🚀 节点选择",
+        "专线手动选择",
+        "临时手动选择",
+        "专线自动选择",
+        "临时自动选择",
+        "🌏 亚洲节点",
+        "🌍 欧美节点",
+        "🌐 其他节点",
+        "direct"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🍎 苹果服务",
+      "outbounds": [
         "direct",
-        "{REPLACE-OUTBOUNDS-APPLE}"
+        "🚀 节点选择",
+        "专线手动选择",
+        "临时手动选择",
+        "专线自动选择",
+        "临时自动选择",
+        "🌏 亚洲节点",
+        "🌍 欧美节点",
+        "🌐 其他节点"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🌏 国内媒体",
+      "outbounds": [
+        "direct",
+        "🚀 节点选择",
+        "专线手动选择",
+        "临时手动选择",
+        "专线自动选择",
+        "临时自动选择",
+        "🌏 亚洲节点",
+        "🌍 欧美节点",
+        "🌐 其他节点"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🌍 国外媒体",
+      "outbounds": [
+        "🚀 节点选择",
+        "专线手动选择",
+        "临时手动选择",
+        "专线自动选择",
+        "临时自动选择",
+        "🌏 亚洲节点",
+        "🌍 欧美节点",
+        "🌐 其他节点",
+        "direct"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🎯 全球直连",
+      "outbounds": [
+        "direct",
+        "🚀 节点选择"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🛑 广告拦截",
+      "outbounds": [
+        "block",
+        "direct"
       ]
     },
     {
@@ -194,74 +328,66 @@
         "outbound": "dns-out"
       },
       {
+        "domain": ["geosite:category-ads-all"],
+        "outbound": "🛑 广告拦截"
+      },
+      {
         "domain_suffix": [
           "openai.com",
           "ai.com",
           "anthropic.com",
           "claude.ai"
         ],
-        "outbound": "OpenAI"
+        "outbound": "💬 OpenAI"
       },
       {
-        "domain": [
-          "geosite:netflix"
-        ],
-        "outbound": "Netflix"
+        "domain": ["geosite:netflix"],
+        "outbound": "🎥 奈飞视频"
       },
       {
-        "domain": [
-          "geosite:disney"
-        ],
-        "outbound": "Disney"
+        "domain": ["geosite:youtube"],
+        "outbound": "📹 油管视频"
       },
       {
-        "domain": [
-          "geosite:google"
-        ],
-        "outbound": "Google"
+        "domain": ["geosite:google"],
+        "outbound": "🚀 节点选择"
       },
       {
-        "domain": [
-          "geosite:microsoft"
-        ],
-        "outbound": "Microsoft"
+        "domain": ["geosite:microsoft"],
+        "outbound": "Ⓜ️ 微软服务"
       },
       {
-        "domain": [
-          "geosite:telegram"
-        ],
-        "outbound": "Telegram"
+        "domain": ["geosite:telegram"],
+        "outbound": "📲 电报消息"
       },
       {
-        "domain": [
-          "geosite:twitter"
-        ],
-        "outbound": "Twitter"
+        "domain": ["geosite:steam", "geosite:epic", "geosite:sony", "geosite:nintendo"],
+        "outbound": "🎮 游戏平台"
       },
       {
-        "domain": [
-          "geosite:apple"
-        ],
-        "outbound": "Apple"
+        "domain": ["geosite:apple"],
+        "outbound": "🍎 苹果服务"
       },
       {
-        "domain": [
-          "geosite:category-ads-all"
-        ],
-        "outbound": "block"
+        "domain": ["geosite:bilibili"],
+        "outbound": "🌏 国内媒体"
       },
       {
         "geosite": "cn",
+        "outbound": "🎯 全球直连"
+      },
+      {
         "geoip": "cn",
-        "outbound": "direct"
+        "outbound": "🎯 全球直连"
       },
       {
         "geosite": "geolocation-!cn",
-        "outbound": "proxy"
+        "outbound": "🚀 节点选择"
       }
     ],
     "auto_detect_interface": true,
-    "override_android_vpn": true
+    "override_android_vpn": true,
+    "final": "🚀 节点选择"
   },
   "experimental": {
     "cache_file": {
