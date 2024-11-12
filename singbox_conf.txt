@@ -94,14 +94,14 @@
         "🌏 亚洲节点",
         "🌍 欧美节点",
         "🌐 其他节点",
-        "direct"
+        "DIRECT"
       ]
     },
     {
       "type": "selector",
       "tag": "专线手动选择",
       "outbounds": [
-        "direct",
+        "DIRECT",
         "{REPLACE-OUTBOUNDS-LINE-MANUAL}"
       ]
     },
@@ -109,7 +109,7 @@
       "type": "selector",
       "tag": "临时手动选择",
       "outbounds": [
-        "direct",
+        "DIRECT",
         "{REPLACE-OUTBOUNDS-TEMPORARY-MANUAL}"
       ]
     },
@@ -137,7 +137,7 @@
       "type": "selector",
       "tag": "🌏 亚洲节点",
       "outbounds": [
-        "direct",
+        "DIRECT",
         "{REPLACE-OUTBOUNDS-REGION-ASIA}"
       ]
     },
@@ -145,7 +145,7 @@
       "type": "selector",
       "tag": "🌍 欧美节点",
       "outbounds": [
-        "direct",
+        "DIRECT",
         "{REPLACE-OUTBOUNDS-REGION-GLOBAL}"
       ]
     },
@@ -153,7 +153,7 @@
       "type": "selector",
       "tag": "🌐 其他节点",
       "outbounds": [
-        "direct",
+        "DIRECT",
         "{REPLACE-OUTBOUNDS-REGION-OTHER}"
       ]
     },
@@ -169,7 +169,7 @@
         "🌏 亚洲节点",
         "🌍 欧美节点",
         "🌐 其他节点",
-        "direct"
+        "DIRECT"
       ]
     },
     {
@@ -184,7 +184,7 @@
         "🌏 亚洲节点",
         "🌍 欧美节点",
         "🌐 其他节点",
-        "direct"
+        "DIRECT"
       ]
     },
     {
@@ -199,7 +199,7 @@
         "🌏 亚洲节点",
         "🌍 欧美节点",
         "🌐 其他节点",
-        "direct"
+        "DIRECT"
       ]
     },
     {
@@ -214,7 +214,7 @@
         "🌏 亚洲节点",
         "🌍 欧美节点",
         "🌐 其他节点",
-        "direct"
+        "DIRECT"
       ]
     },
     {
@@ -229,7 +229,7 @@
         "🌏 亚洲节点",
         "🌍 欧美节点",
         "🌐 其他节点",
-        "direct"
+        "DIRECT"
       ]
     },
     {
@@ -244,14 +244,14 @@
         "🌏 亚洲节点",
         "🌍 欧美节点",
         "🌐 其他节点",
-        "direct"
+        "DIRECT"
       ]
     },
     {
       "type": "selector",
       "tag": "🍎 苹果服务",
       "outbounds": [
-        "direct",
+        "DIRECT",
         "🚀 节点选择",
         "专线手动选择",
         "临时手动选择",
@@ -266,7 +266,7 @@
       "type": "selector",
       "tag": "🌏 国内媒体",
       "outbounds": [
-        "direct",
+        "DIRECT",
         "🚀 节点选择",
         "专线手动选择",
         "临时手动选择",
@@ -289,14 +289,14 @@
         "🌏 亚洲节点",
         "🌍 欧美节点",
         "🌐 其他节点",
-        "direct"
+        "DIRECT"
       ]
     },
     {
       "type": "selector",
       "tag": "🎯 全球直连",
       "outbounds": [
-        "direct",
+        "DIRECT",
         "🚀 节点选择"
       ]
     },
@@ -304,28 +304,28 @@
       "type": "selector",
       "tag": "🛑 广告拦截",
       "outbounds": [
-        "block",
-        "direct"
+        "BLOCK",
+        "DIRECT"
       ]
     },
     {
       "type": "direct",
-      "tag": "direct"
+      "tag": "DIRECT"
     },
     {
       "type": "block",
-      "tag": "block"
+      "tag": "BLOCK"
     },
     {
       "type": "dns",
-      "tag": "dns-out"
+      "tag": "DNS-OUT"
     }
   ],
   "route": {
     "rules": [
       {
         "protocol": "dns",
-        "outbound": "dns-out"
+        "outbound": "DNS-OUT"
       },
       {
         "domain": ["geosite:category-ads-all"],
