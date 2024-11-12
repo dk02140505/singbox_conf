@@ -334,6 +334,21 @@
         "🌐 其他节点",
         "DIRECT"
       ]
+    },
+    {
+      "type": "selector",
+      "tag": "🐟 漏网之鱼",
+      "outbounds": [
+        "🎯 全球直连",
+        "🚀 节点选择",
+        "专线手动选择",
+        "临时手动选择",
+        "专线自动选择",
+        "临时自动选择",
+        "🌏 亚洲节点",
+        "🌍 欧美节点",
+        "🌐 其他节点"
+      ]
     }
   ],
   "route": {
@@ -477,11 +492,23 @@
           "public.bnbstatic.com"
         ],
         "outbound": "🎯 全球直连"
+      },
+      {
+        "geosite": "gfw",
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "domain": [
+          "example.com",
+          "api.example.com",
+          "*.example.org"
+        ],
+        "outbound": "🐟 漏网之鱼"
       }
     ],
     "auto_detect_interface": true,
     "override_android_vpn": true,
-    "final": "🚀 节点选择"
+    "final": "🎯 全球直连"
   },
   "experimental": {
     "cache_file": {
