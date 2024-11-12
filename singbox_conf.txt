@@ -1,4 +1,4 @@
-const singbox_conf = {
+{
   "log": {
     "level": "info",
     "timestamp": true
@@ -86,6 +86,15 @@ const singbox_conf = {
     },
     {
       "type": "selector",
+      "tag": "OpenAI",
+      "outbounds": [
+        "proxy",
+        "direct",
+        "{REPLACE-OUTBOUNDS-OPENAI}"
+      ]
+    },
+    {
+      "type": "selector",
       "tag": "Netflix",
       "outbounds": [
         "proxy",
@@ -100,24 +109,6 @@ const singbox_conf = {
         "proxy",
         "direct",
         "{REPLACE-OUTBOUNDS-DISNEY}"
-      ]
-    },
-    {
-      "type": "selector",
-      "tag": "OpenAI",
-      "outbounds": [
-        "proxy",
-        "direct",
-        "{REPLACE-OUTBOUNDS-OPENAI}"
-      ]
-    },
-    {
-      "type": "selector",
-      "tag": "Apple",
-      "outbounds": [
-        "proxy",
-        "direct",
-        "{REPLACE-OUTBOUNDS-APPLE}"
       ]
     },
     {
@@ -154,6 +145,15 @@ const singbox_conf = {
         "proxy",
         "direct",
         "{REPLACE-OUTBOUNDS-TWITTER}"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "Apple",
+      "outbounds": [
+        "proxy",
+        "direct",
+        "{REPLACE-OUTBOUNDS-APPLE}"
       ]
     },
     {
@@ -258,6 +258,4 @@ const singbox_conf = {
       "cache_id": ""
     }
   }
-};
-
-export default singbox_conf;
+}
