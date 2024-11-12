@@ -319,6 +319,21 @@
     {
       "type": "dns",
       "tag": "DNS-OUT"
+    },
+    {
+      "type": "selector",
+      "tag": "💰 加密货币",
+      "outbounds": [
+        "🚀 节点选择",
+        "专线手动选择",
+        "临时手动选择",
+        "专线自动选择",
+        "临时自动选择",
+        "🌏 亚洲节点",
+        "🌍 欧美节点",
+        "🌐 其他节点",
+        "DIRECT"
+      ]
     }
   ],
   "route": {
@@ -383,6 +398,85 @@
       {
         "geosite": "geolocation-!cn",
         "outbound": "🚀 节点选择"
+      },
+      {
+        "domain": [
+          "bin.bnbstatic.com",
+          "public.bnbstatic.com",
+          "stream.binance.com",
+          "data.binance.com",
+          "dex.binance.org",
+          "static.okx.com",
+          "static.huobi.com",
+          "steamcontent.com",
+          "steamstatic.com",
+          "steamcdn-a.akamaihd.net",
+          "cdn.cloudflare.com",
+          "cdn.jsdelivr.net"
+        ],
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "domain": [
+          "binance.com",
+          "www.binance.com",
+          "api.binance.com",
+          "accounts.binance.com",
+          "p2p.binance.com",
+          "binance.cloud",
+          "binancefuture.com",
+          "binance.me",
+          "binance.info",
+          "coinmarketcap.com",
+          "coingecko.com",
+          "tradingview.com",
+          "okx.com",
+          "huobi.com",
+          "kucoin.com",
+          "gate.io",
+          "bitfinex.com",
+          "kraken.com",
+          "bybit.com"
+        ],
+        "outbound": "💰 加密货币"
+      },
+      {
+        "ip_cidr": [
+          "203.208.40.0/24",
+          "203.208.41.0/24",
+          "203.208.43.0/24",
+          "203.208.50.0/24",
+          "74.125.0.0/16",
+          "173.194.0.0/16",
+          "172.217.0.0/16",
+          "142.250.0.0/15",
+          "172.253.0.0/16",
+          "13.107.21.200/32",
+          "13.107.246.0/24",
+          "104.16.0.0/12",
+          "172.64.0.0/13",
+          "155.133.224.0/23",
+          "155.133.226.0/24",
+          "155.133.227.0/24",
+          "155.133.230.0/23",
+          "155.133.232.0/24",
+          "155.133.233.0/24",
+          "155.133.234.0/24",
+          "155.133.236.0/23",
+          "155.133.238.0/24",
+          "155.133.239.0/24"
+        ],
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "domain": [
+          "869069.xyz",
+          "881069.xyz",
+          "698910.xyz",
+          "bin.bnbstatic.com",
+          "public.bnbstatic.com"
+        ],
+        "outbound": "🎯 全球直连"
       }
     ],
     "auto_detect_interface": true,
