@@ -1,22 +1,30 @@
 {
   "log": {
+    "disabled": false,
     "level": "info",
     "timestamp": true
   },
   "dns": {
     "servers": [
       {
-        "tag": "google",
-        "address": "tls://8.8.8.8"
+        "tag": "dns_proxy",
+        "address": "tls://1.1.1.1",
+        "address_resolver": "dns_resolver"
       },
       {
-        "tag": "cloudflare",
-        "address": "https://1.1.1.1/dns-query"
+        "tag": "dns_direct",
+        "address": "h3://dns.alidns.com/dns-query",
+        "address_resolver": "dns_resolver",
+        "detour": "DIRECT"
       },
       {
-        "tag": "local",
+        "tag": "dns_fakeip",
+        "address": "fakeip"
+      },
+      {
+        "tag": "dns_resolver",
         "address": "223.5.5.5",
-        "detour": "direct"
+        "detour": "DIRECT"
       },
       {
         "tag": "block",
@@ -25,42 +33,52 @@
     ],
     "rules": [
       {
-        "domain": ["geosite:category-ads-all"],
-        "server": "block",
+        "outbound": ["any"],
+        "server": "dns_resolver"
+      },
+      {
+        "geosite": ["category-ads-all"],
+        "server": "dns_block",
         "disable_cache": true
       },
       {
-        "geosite": "cn",
-        "server": "local"
+        "geosite": ["geolocation-!cn"],
+        "query_type": ["A", "AAAA"],
+        "server": "dns_fakeip"
       },
       {
-        "geosite": "geolocation-!cn",
-        "server": "google"
+        "geosite": ["geolocation-!cn"],
+        "server": "dns_proxy"
       }
     ],
-    "strategy": "ipv4_only",
-    "disable_cache": false,
-    "disable_expire": false
+    "final": "dns_direct",
+    "independent_cache": true,
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15"
+    }
+  },
+  "ntp": {
+    "enabled": true,
+    "server": "time.apple.com",
+    "server_port": 123,
+    "interval": "30m",
+    "detour": "DIRECT"
   },
   "inbounds": [
     {
       "type": "mixed",
       "tag": "mixed-in",
-      "listen": "127.0.0.1",
-      "listen_port": 2080,
-      "sniff": true,
-      "sniff_override_destination": false,
-      "domain_strategy": "ipv4_only"
+      "listen": "0.0.0.0",
+      "listen_port": 2080
     },
     {
       "type": "tun",
       "tag": "tun-in",
-      "interface_name": "tun0",
       "inet4_address": "172.19.0.1/30",
-      "mtu": 9000,
       "auto_route": true,
       "strict_route": true,
-      "stack": "system",
+      "stack": "mixed",
       "sniff": true
     }
   ],
@@ -249,15 +267,6 @@
     "cache_file": {
       "enabled": true,
       "path": "cache.db"
-    },
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "ui",
-      "external_ui_download_url": "",
-      "external_ui_download_detour": "",
-      "secret": "",
-      "default_mode": "rule",
-      "store_selected": true
     }
   }
 }
