@@ -1,0 +1,293 @@
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+external-controller: '127.0.0.1:9090'
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  fallback:
+    - tls://1.1.1.1:853
+    - tls://8.8.8.8:853
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+
+proxy-groups:
+  - name: "🚀 节点选择"
+    type: select
+    proxies:
+      - 专线手动选择
+      - 临时手动选择
+      - 专线自动选择
+      - 临时自动选择
+      - 🌏 亚洲节点
+      - 🌍 欧美节点
+      - 🌐 其他节点
+      - DIRECT
+
+  - name: "专线手动选择"
+    type: select
+    proxies:
+      - DIRECT
+      {REPLACE-PROXIES-LINE-MANUAL}
+
+  - name: "临时手动选择" 
+    type: select
+    proxies:
+      - DIRECT
+      {REPLACE-PROXIES-TEMPORARY-MANUAL}
+
+  - name: "专线自动选择"
+    type: url-test
+    proxies:
+      {REPLACE-PROXIES-LINE-AUTO}
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+
+  - name: "临时自动选择"
+    type: url-test
+    proxies:
+      {REPLACE-PROXIES-TEMPORARY-AUTO}
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+
+  - name: "🌏 亚洲节点"
+    type: select
+    proxies:
+      - DIRECT
+      {REPLACE-PROXIES-REGION-ASIA}
+
+  - name: "🌍 欧美节点"
+    type: select
+    proxies:
+      - DIRECT
+      {REPLACE-PROXIES-REGION-GLOBAL}
+
+  - name: "🌐 其他节点"
+    type: select
+    proxies:
+      - DIRECT
+      {REPLACE-PROXIES-REGION-OTHER}
+
+  - name: "💬 OpenAI"
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 专线手动选择
+      - 临时手动选择
+      - 专线自动选择
+      - 临时自动选择
+      - 🌏 亚洲节点
+      - 🌍 欧美节点
+      - 🌐 其他节点
+      - DIRECT
+
+  - name: "🎥 奈飞视频"
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 专线手动选择
+      - 临时手动选择
+      - 专线自动选择
+      - 临时自动选择
+      - 🌏 亚洲节点
+      - 🌍 欧美节点
+      - 🌐 其他节点
+      - DIRECT
+
+      - name: "📹 油管视频"
+      type: select
+      proxies:
+        - 🚀 节点选择
+        - 专线手动选择
+        - 临时手动选择
+        - 专线自动选择
+        - 临时自动选择
+        - 🌏 亚洲节点
+        - 🌍 欧美节点
+        - 🌐 其他节点
+        - DIRECT
+  
+    - name: "𝕏 推特"
+      type: select
+      proxies:
+        - 🚀 节点选择
+        - 专线手动选择
+        - 临时手动选择
+        - 专线自动选择
+        - 临时自动选择
+        - 🌏 亚洲节点
+        - 🌍 欧美节点
+        - 🌐 其他节点
+        - DIRECT
+  
+    - name: "💰 加密货币"
+      type: select
+      proxies:
+        - 🚀 节点选择
+        - 专线手动选择
+        - 临时手动选择
+        - 专线自动选择
+        - 临时自动选择
+        - 🌏 亚洲节点
+        - 🌍 欧美节点
+        - 🌐 其他节点
+        - DIRECT
+  
+    - name: "🎮 游戏平台"
+      type: select
+      proxies:
+        - 🚀 节点选择
+        - 专线手动选择
+        - 临时手动选择
+        - 专线自动选择
+        - 临时自动选择
+        - 🌏 亚洲节点
+        - 🌍 欧美节点
+        - 🌐 其他节点
+        - DIRECT
+  
+    - name: "📲 电报消息"
+      type: select
+      proxies:
+        - 🚀 节点选择
+        - 专线手动选择
+        - 临时手动选择
+        - 专线自动选择
+        - 临时自动选择
+        - 🌏 亚洲节点
+        - 🌍 欧美节点
+        - 🌐 其他节点
+        - DIRECT
+  
+    - name: "Ⓜ️ 微软服务"
+      type: select
+      proxies:
+        - 🚀 节点选择
+        - 专线手动选择
+        - 临时手动选择
+        - 专线自动选择
+        - 临时自动选择
+        - 🌏 亚洲节点
+        - 🌍 欧美节点
+        - 🌐 其他节点
+        - DIRECT
+  
+    - name: "🍎 苹果服务"
+      type: select
+      proxies:
+        - DIRECT
+        - 🚀 节点选择
+        - 专线手动选择
+        - 临时手动选择
+        - 专线自动选择
+        - 临时自动选择
+        - 🌏 亚洲节点
+        - 🌍 欧美节点
+        - 🌐 其他节点
+  
+    - name: "🌏 国内媒体"
+      type: select
+      proxies:
+        - DIRECT
+        - 🚀 节点选择
+        - 专线手动选择
+        - 临时手动选择
+        - 专线自动选择
+        - 临时自动选择
+        - 🌏 亚洲节点
+        - 🌍 欧美节点
+        - 🌐 其他节点
+  
+    - name: "🌍 国外媒体"
+      type: select
+      proxies:
+        - 🚀 节点选择
+        - 专线手动选择
+        - 临时手动选择
+        - 专线自动选择
+        - 临时自动选择
+        - 🌏 亚洲节点
+        - 🌍 欧美节点
+        - 🌐 其他节点
+        - DIRECT
+  
+    - name: "🎯 全球直连"
+      type: select
+      proxies:
+        - DIRECT
+        - 🚀 节点选择
+  
+    - name: "🛑 广告拦截"
+      type: select
+      proxies:
+        - REJECT
+        - DIRECT
+  
+    - name: "🐟 漏网之鱼"
+      type: select
+      proxies:
+        - 🎯 全球直连
+        - 🚀 节点选择
+        - 专线手动选择
+        - 临时手动选择
+        - 专线自动选择
+        - 临时自动选择
+        - 🌏 亚洲节点
+        - 🌍 欧美节点
+        - 🌐 其他节点
+  
+  rules:
+    - DOMAIN-SUFFIX,openai.com,💬 OpenAI
+    - DOMAIN-SUFFIX,ai.com,💬 OpenAI
+    - DOMAIN-SUFFIX,anthropic.com,💬 OpenAI
+    - DOMAIN-SUFFIX,claude.ai,💬 OpenAI
+    
+    - DOMAIN-KEYWORD,netflix,🎥 奈飞视频
+    - DOMAIN-KEYWORD,youtube,📹 油管视频
+    - DOMAIN-KEYWORD,google,🚀 节点选择
+    - DOMAIN-KEYWORD,microsoft,Ⓜ️ 微软服务
+    - DOMAIN-KEYWORD,telegram,📲 电报消息
+    
+    - DOMAIN-SUFFIX,steam.com,🎮 游戏平台
+    - DOMAIN-SUFFIX,steamcontent.com,DIRECT
+    - DOMAIN-SUFFIX,steamstatic.com,DIRECT
+    - DOMAIN-SUFFIX,steamcdn-a.akamaihd.net,DIRECT
+    - DOMAIN-SUFFIX,epicgames.com,🎮 游戏平台
+    - DOMAIN-SUFFIX,sony.com,🎮 游戏平台
+    - DOMAIN-SUFFIX,playstation.com,🎮 游戏平台
+    - DOMAIN-SUFFIX,nintendo.com,🎮 游戏平台
+    
+    - DOMAIN-SUFFIX,apple.com,🍎 苹果服务
+    - DOMAIN-SUFFIX,icloud.com,🍎 苹果服务
+    - DOMAIN-SUFFIX,cdn-apple.com,🍎 苹果服务
+    
+    - DOMAIN-SUFFIX,twitter.com,𝕏 推特
+    - DOMAIN-SUFFIX,twimg.com,𝕏 推特
+    - DOMAIN-SUFFIX,t.co,𝕏 推特
+    
+    - DOMAIN-SUFFIX,binance.com,💰 加密货币
+    - DOMAIN-SUFFIX,binancefuture.com,💰 加密货币
+    - DOMAIN-SUFFIX,bnbstatic.com,DIRECT
+    - DOMAIN-SUFFIX,okx.com,💰 加密货币
+    - DOMAIN-SUFFIX,huobi.com,💰 加密货币
+    - DOMAIN-SUFFIX,gate.io,💰 加密货币
+    - DOMAIN-SUFFIX,kucoin.com,💰 加密货币
+    - DOMAIN-SUFFIX,bybit.com,💰 加密货币
+    
+    - DOMAIN-SUFFIX,bilibili.com,🌏 国内媒体
+    - DOMAIN-SUFFIX,bilivideo.com,🌏 国内媒体
+    
+    - GEOIP,CN,🎯 全球直连
+    - DOMAIN-SUFFIX,cn,🎯 全球直连
+    
+    - MATCH,🐟 漏网之鱼
