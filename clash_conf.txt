@@ -40,7 +40,7 @@ proxy-groups:
       - DIRECT
       {REPLACE-PROXIES-LINE-MANUAL}
 
-  - name: "临时手动选择" 
+  - name: "临时手动选择"
     type: select
     proxies:
       - DIRECT
@@ -48,17 +48,17 @@ proxy-groups:
 
   - name: "专线自动选择"
     type: url-test
-    proxies:
-      {REPLACE-PROXIES-LINE-AUTO}
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
+    proxies:
+      {REPLACE-PROXIES-LINE-AUTO}
 
   - name: "临时自动选择"
     type: url-test
-    proxies:
-      {REPLACE-PROXIES-TEMPORARY-AUTO}
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
+    proxies:
+      {REPLACE-PROXIES-TEMPORARY-AUTO}
 
   - name: "🌏 亚洲节点"
     type: select
@@ -104,190 +104,73 @@ proxy-groups:
       - 🌐 其他节点
       - DIRECT
 
-      - name: "📹 油管视频"
-      type: select
-      proxies:
-        - 🚀 节点选择
-        - 专线手动选择
-        - 临时手动选择
-        - 专线自动选择
-        - 临时自动选择
-        - 🌏 亚洲节点
-        - 🌍 欧美节点
-        - 🌐 其他节点
-        - DIRECT
+  - name: "🎯 全球直连"
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+
+  - name: "🛑 广告拦截"
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+
+  - name: "🐟 漏网之鱼"
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🚀 节点选择
+      - 专线手动选择
+      - 临时手动选择
+      - 专线自动选择
+      - 临时自动选择
+      - 🌏 亚洲节点
+      - 🌍 欧美节点
+      - 🌐 其他节点
+
+rules:
+  - DOMAIN-SUFFIX,openai.com,💬 OpenAI
+  - DOMAIN-SUFFIX,ai.com,💬 OpenAI
+  - DOMAIN-SUFFIX,anthropic.com,💬 OpenAI
+  - DOMAIN-SUFFIX,claude.ai,💬 OpenAI
   
-    - name: "𝕏 推特"
-      type: select
-      proxies:
-        - 🚀 节点选择
-        - 专线手动选择
-        - 临时手动选择
-        - 专线自动选择
-        - 临时自动选择
-        - 🌏 亚洲节点
-        - 🌍 欧美节点
-        - 🌐 其他节点
-        - DIRECT
+  - DOMAIN-KEYWORD,netflix,🎥 奈飞视频
+  - DOMAIN-KEYWORD,youtube,📹 油管视频
+  - DOMAIN-KEYWORD,google,🚀 节点选择
+  - DOMAIN-KEYWORD,microsoft,Ⓜ️ 微软服务
+  - DOMAIN-KEYWORD,telegram,📲 电报消息
   
-    - name: "💰 加密货币"
-      type: select
-      proxies:
-        - 🚀 节点选择
-        - 专线手动选择
-        - 临时手动选择
-        - 专线自动选择
-        - 临时自动选择
-        - 🌏 亚洲节点
-        - 🌍 欧美节点
-        - 🌐 其他节点
-        - DIRECT
+  - DOMAIN-SUFFIX,steam.com,🎮 游戏平台
+  - DOMAIN-SUFFIX,steamcontent.com,DIRECT
+  - DOMAIN-SUFFIX,steamstatic.com,DIRECT
+  - DOMAIN-SUFFIX,steamcdn-a.akamaihd.net,DIRECT
+  - DOMAIN-SUFFIX,epicgames.com,🎮 游戏平台
+  - DOMAIN-SUFFIX,sony.com,🎮 游戏平台
+  - DOMAIN-SUFFIX,playstation.com,🎮 游戏平台
+  - DOMAIN-SUFFIX,nintendo.com,🎮 游戏平台
   
-    - name: "🎮 游戏平台"
-      type: select
-      proxies:
-        - 🚀 节点选择
-        - 专线手动选择
-        - 临时手动选择
-        - 专线自动选择
-        - 临时自动选择
-        - 🌏 亚洲节点
-        - 🌍 欧美节点
-        - 🌐 其他节点
-        - DIRECT
+  - DOMAIN-SUFFIX,apple.com,🍎 苹果服务
+  - DOMAIN-SUFFIX,icloud.com,🍎 苹果服务
+  - DOMAIN-SUFFIX,cdn-apple.com,🍎 苹果服务
   
-    - name: "📲 电报消息"
-      type: select
-      proxies:
-        - 🚀 节点选择
-        - 专线手动选择
-        - 临时手动选择
-        - 专线自动选择
-        - 临时自动选择
-        - 🌏 亚洲节点
-        - 🌍 欧美节点
-        - 🌐 其他节点
-        - DIRECT
+  - DOMAIN-SUFFIX,twitter.com,𝕏 推特
+  - DOMAIN-SUFFIX,twimg.com,𝕏 推特
+  - DOMAIN-SUFFIX,t.co,𝕏 推特
   
-    - name: "Ⓜ️ 微软服务"
-      type: select
-      proxies:
-        - 🚀 节点选择
-        - 专线手动选择
-        - 临时手动选择
-        - 专线自动选择
-        - 临时自动选择
-        - 🌏 亚洲节点
-        - 🌍 欧美节点
-        - 🌐 其他节点
-        - DIRECT
+  - DOMAIN-SUFFIX,binance.com,💰 加密货币
+  - DOMAIN-SUFFIX,binancefuture.com,💰 加密货币
+  - DOMAIN-SUFFIX,bnbstatic.com,DIRECT
+  - DOMAIN-SUFFIX,okx.com,💰 加密货币
+  - DOMAIN-SUFFIX,huobi.com,💰 加密货币
+  - DOMAIN-SUFFIX,gate.io,💰 加密货币
+  - DOMAIN-SUFFIX,kucoin.com,💰 加密货币
+  - DOMAIN-SUFFIX,bybit.com,💰 加密货币
   
-    - name: "🍎 苹果服务"
-      type: select
-      proxies:
-        - DIRECT
-        - 🚀 节点选择
-        - 专线手动选择
-        - 临时手动选择
-        - 专线自动选择
-        - 临时自动选择
-        - 🌏 亚洲节点
-        - 🌍 欧美节点
-        - 🌐 其他节点
+  - DOMAIN-SUFFIX,bilibili.com,🌏 国内媒体
+  - DOMAIN-SUFFIX,bilivideo.com,🌏 国内媒体
   
-    - name: "🌏 国内媒体"
-      type: select
-      proxies:
-        - DIRECT
-        - 🚀 节点选择
-        - 专线手动选择
-        - 临时手动选择
-        - 专线自动选择
-        - 临时自动选择
-        - 🌏 亚洲节点
-        - 🌍 欧美节点
-        - 🌐 其他节点
+  - GEOIP,CN,🎯 全球直连
+  - DOMAIN-SUFFIX,cn,🎯 全球直连
   
-    - name: "🌍 国外媒体"
-      type: select
-      proxies:
-        - 🚀 节点选择
-        - 专线手动选择
-        - 临时手动选择
-        - 专线自动选择
-        - 临时自动选择
-        - 🌏 亚洲节点
-        - 🌍 欧美节点
-        - 🌐 其他节点
-        - DIRECT
-  
-    - name: "🎯 全球直连"
-      type: select
-      proxies:
-        - DIRECT
-        - 🚀 节点选择
-  
-    - name: "🛑 广告拦截"
-      type: select
-      proxies:
-        - REJECT
-        - DIRECT
-  
-    - name: "🐟 漏网之鱼"
-      type: select
-      proxies:
-        - 🎯 全球直连
-        - 🚀 节点选择
-        - 专线手动选择
-        - 临时手动选择
-        - 专线自动选择
-        - 临时自动选择
-        - 🌏 亚洲节点
-        - 🌍 欧美节点
-        - 🌐 其他节点
-  
-  rules:
-    - DOMAIN-SUFFIX,openai.com,💬 OpenAI
-    - DOMAIN-SUFFIX,ai.com,💬 OpenAI
-    - DOMAIN-SUFFIX,anthropic.com,💬 OpenAI
-    - DOMAIN-SUFFIX,claude.ai,💬 OpenAI
-    
-    - DOMAIN-KEYWORD,netflix,🎥 奈飞视频
-    - DOMAIN-KEYWORD,youtube,📹 油管视频
-    - DOMAIN-KEYWORD,google,🚀 节点选择
-    - DOMAIN-KEYWORD,microsoft,Ⓜ️ 微软服务
-    - DOMAIN-KEYWORD,telegram,📲 电报消息
-    
-    - DOMAIN-SUFFIX,steam.com,🎮 游戏平台
-    - DOMAIN-SUFFIX,steamcontent.com,DIRECT
-    - DOMAIN-SUFFIX,steamstatic.com,DIRECT
-    - DOMAIN-SUFFIX,steamcdn-a.akamaihd.net,DIRECT
-    - DOMAIN-SUFFIX,epicgames.com,🎮 游戏平台
-    - DOMAIN-SUFFIX,sony.com,🎮 游戏平台
-    - DOMAIN-SUFFIX,playstation.com,🎮 游戏平台
-    - DOMAIN-SUFFIX,nintendo.com,🎮 游戏平台
-    
-    - DOMAIN-SUFFIX,apple.com,🍎 苹果服务
-    - DOMAIN-SUFFIX,icloud.com,🍎 苹果服务
-    - DOMAIN-SUFFIX,cdn-apple.com,🍎 苹果服务
-    
-    - DOMAIN-SUFFIX,twitter.com,𝕏 推特
-    - DOMAIN-SUFFIX,twimg.com,𝕏 推特
-    - DOMAIN-SUFFIX,t.co,𝕏 推特
-    
-    - DOMAIN-SUFFIX,binance.com,💰 加密货币
-    - DOMAIN-SUFFIX,binancefuture.com,💰 加密货币
-    - DOMAIN-SUFFIX,bnbstatic.com,DIRECT
-    - DOMAIN-SUFFIX,okx.com,💰 加密货币
-    - DOMAIN-SUFFIX,huobi.com,💰 加密货币
-    - DOMAIN-SUFFIX,gate.io,💰 加密货币
-    - DOMAIN-SUFFIX,kucoin.com,💰 加密货币
-    - DOMAIN-SUFFIX,bybit.com,💰 加密货币
-    
-    - DOMAIN-SUFFIX,bilibili.com,🌏 国内媒体
-    - DOMAIN-SUFFIX,bilivideo.com,🌏 国内媒体
-    
-    - GEOIP,CN,🎯 全球直连
-    - DOMAIN-SUFFIX,cn,🎯 全球直连
-    
-    - MATCH,🐟 漏网之鱼
+  - MATCH,🐟 漏网之鱼
