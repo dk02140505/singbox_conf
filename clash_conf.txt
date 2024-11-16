@@ -1,294 +1,92 @@
-mixed-port: 7890
-allow-lan: true
-bind-address: '*'
-mode: rule
-log-level: info
-external-controller: '127.0.0.1:9090'
-dns:
-  enable: true
-  listen: 0.0.0.0:53
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-  fallback:
-    - tls://1.1.1.1:853
-    - tls://8.8.8.8:853
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-    ipcidr:
-      - 240.0.0.0/4
+[custom]
+;不要随意改变关键字，否则会导致出错
+;acl4SSR规则
 
-proxy-groups:
-  - name: "🚀 节点选择"
-    type: select
-    proxies:
-      - 专线手动选择
-      - 临时手动选择
-      - 专线自动选择
-      - 临时自动选择
-      - 🌏 亚洲节点
-      - 🌍 欧美节点
-      - 🌐 其他节点
-      - DIRECT
+;去广告：支持
+;自动测速：支持
+;微软分流：支持
+;苹果分流：支持
+;增强中国IP段：支持
+;增强国外GFW：支持
 
-  - name: "专线手动选择"
-    type: select
-    proxies:
-      - DIRECT
-      {REPLACE-PROXIES-LINE-MANUAL}
+;设置规则标志位
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+ruleset=🛑 广告拦截,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+ruleset=🍃 应用净化,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+ruleset=🆎 AdBlock,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
+ruleset=🆎 AdBlock,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
+ruleset=🛡️ 隐私防护,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list
+ruleset=📢 谷歌FCM,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+ruleset=Ⓜ️ 微软Bing,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Bing.list
+ruleset=Ⓜ️ 微软云盘,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/OneDrive.list
+ruleset=Ⓜ️ 微软服务,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
+ruleset=🍎 苹果服务,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
+ruleset=📲 电报消息,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+ruleset=💬 OpenAi,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OpenAi.list
+ruleset=🎶 网易音乐,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEaseMusic.list
+ruleset=🎮 游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Epic.list
+ruleset=🎮 游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Origin.list
+ruleset=🎮 游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Sony.list
+ruleset=🎮 游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Steam.list
+ruleset=🎮 游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Nintendo.list
+ruleset=📹 油管视频,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list
+ruleset=🎥 奈飞视频,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Netflix.list
+ruleset=📺 巴哈姆特,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bahamut.list
+ruleset=📺 哔哩哔哩,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/BilibiliHMT.list
+ruleset=📺 哔哩哔哩,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bilibili.list
+ruleset=🌏 国内媒体,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list
+ruleset=🌍 国外媒体,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+ruleset=🚀 节点选择,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list
+;ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaIp.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list
+;ruleset=🎯 全球直连,[]GEOIP,LAN
+ruleset=🎯 全球直连,[]GEOIP,CN
+ruleset=🐟 漏网之鱼,[]FINAL
+;设置规则标志位
 
-  - name: "临时手动选择" 
-    type: select
-    proxies:
-      - DIRECT
-      {REPLACE-PROXIES-TEMPORARY-MANUAL}
+;设置分组标志位
+custom_proxy_group=📲 电报消息`select`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域`[]DIRECT
+custom_proxy_group=💬 OpenAi`select`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域`[]DIRECT
+custom_proxy_group=📹 油管视频`select`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域`[]DIRECT
+custom_proxy_group=🎥 奈飞视频`select`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域`[]DIRECT
+custom_proxy_group=📺 巴哈姆特`select`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域`[]DIRECT
+custom_proxy_group=📺 哔哩哔哩`select`[]DIRECT`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域
+custom_proxy_group=🌍 国外媒体`select`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域`[]DIRECT
+custom_proxy_group=🌏 国内媒体`select`[]DIRECT`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域
+custom_proxy_group=📢 谷歌FCM`select`[]DIRECT`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域
+custom_proxy_group=Ⓜ️ 微软Bing`select`[]DIRECT`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域
+custom_proxy_group=Ⓜ️ 微软云盘`select`[]DIRECT`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域
+custom_proxy_group=Ⓜ️ 微软服务`select`[]DIRECT`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域
+custom_proxy_group=🍎 苹果服务`select`[]DIRECT`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域
+custom_proxy_group=🎮 游戏平台`select`[]DIRECT`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域
+custom_proxy_group=🎶 网易音乐`select`[]DIRECT`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`(网易|音乐|解锁|Music|NetEase)
+custom_proxy_group=🎯 全球直连`select`[]DIRECT`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域
+custom_proxy_group=🛑 广告拦截`select`[]REJECT`[]DIRECT
+custom_proxy_group=🍃 应用净化`select`[]REJECT`[]DIRECT
+custom_proxy_group=🆎 AdBlock`select`[]REJECT`[]DIRECT
+custom_proxy_group=🛡️ 隐私防护`select`[]REJECT`[]DIRECT
+custom_proxy_group=🐟 漏网之鱼`select`[]🚀 节点选择`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域`[]DIRECT
 
-  - name: "专线自动选择"
-    type: url-test
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-    proxies:
-      {REPLACE-PROXIES-LINE-AUTO}
+;主要分组的定义
+custom_proxy_group=🚀 节点选择`select`[]✈️ 专线自动`[]📡 专线手动`[]🌐 临时自动`[]🔄 临时手动`[]🌏 亚洲节点`[]🌍 欧美节点`[]🌎 未知区域`[]DIRECT
+custom_proxy_group=✈️ 专线自动`url-test`(专线|特线|IPLC|IEPL|BGP|CN2|AIA|CTM|CEN|CMI|AZURE|Azure|专项|优选)`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=📡 专线手动`select`(专线|特线|IPLC|IEPL|BGP|CN2|AIA|CTM|CEN|CMI|AZURE|Azure|专项|优选)
+custom_proxy_group=🌐 临时自动`url-test`^((?!专线|特线|IPLC|IEPL|BGP|CN2|AIA|CTM|CEN|CMI|AZURE|Azure|专项|优选|普通|普线|普通线路).)*$`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🔄 临时手动`select`^((?!专线|特线|IPLC|IEPL|BGP|CN2|AIA|CTM|CEN|CMI|AZURE|Azure|专项|优选|普通|普线|普通线路).)*$
+custom_proxy_group=🌏 亚洲节点`url-test`^((?!专线|特线|IPLC|IEPL|BGP|CN2|AIA|CTM|CEN|CMI|AZURE|Azure|专项|优选|普通|普线|普通线路).)*$(港|HK|Hong Kong|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan|台|新北|彰化|TW|Taiwan|新加坡|坡|狮城|SG|Singapore|KR|Korea|KOR|首尔|韩|韓)`http://www.gstatic.com/generate_204`300,,50
+custom_proxy_group=🌍 欧美节点`url-test`^((?!专线|特线|IPLC|IEPL|BGP|CN2|AIA|CTM|CEN|CMI|AZURE|Azure|专项|优选|普通|普线|普通线路).)*$(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|DE|德|德国|FR|法|法国|GB|英|英国)`http://www.gstatic.com/generate_204`300,,150
+custom_proxy_group=🌎 未知区域`select`^((?!专线|特线|IPLC|IEPL|BGP|CN2|AIA|CTM|CEN|CMI|AZURE|Azure|专项|优选|普通|普线|普通线路|港|HK|Hong Kong|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan|台|新北|彰化|TW|Taiwan|新加坡|坡|狮城|SG|Singapore|KR|Korea|KOR|首尔|韩|韓|美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States|DE|德|德国|FR|法|法国|GB|英|英国).)*$
 
-  - name: "临时自动选择"
-    type: url-test
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-    proxies:
-      {REPLACE-PROXIES-TEMPORARY-AUTO}
+;设置分组标志位
 
+enable_rule_generator=true
+overwrite_original_rules=true
 
-  - name: "🌏 亚洲节点"
-    type: select
-    proxies:
-      - DIRECT
-      {REPLACE-PROXIES-REGION-ASIA}
+;clash_rule_base=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GeneralClashConfig.yml
 
-  - name: "🌍 欧美节点"
-    type: select
-    proxies:
-      - DIRECT
-      {REPLACE-PROXIES-REGION-GLOBAL}
-
-  - name: "🌐 其他节点"
-    type: select
-    proxies:
-      - DIRECT
-      {REPLACE-PROXIES-REGION-OTHER}
-
-  - name: "💬 OpenAI"
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 专线手动选择
-      - 临时手动选择
-      - 专线自动选择
-      - 临时自动选择
-      - 🌏 亚洲节点
-      - 🌍 欧美节点
-      - 🌐 其他节点
-      - DIRECT
-
-  - name: "🎥 奈飞视频"
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 专线手动选择
-      - 临时手动选择
-      - 专线自动选择
-      - 临时自动选择
-      - 🌏 亚洲节点
-      - 🌍 欧美节点
-      - 🌐 其他节点
-      - DIRECT
-
-  - name: "📹 油管视频"    
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 专线手动选择
-      - 临时手动选择
-      - 专线自动选择
-      - 临时自动选择
-      - 🌏 亚洲节点
-      - 🌍 欧美节点
-      - 🌐 其他节点
-      - DIRECT
-
-  - name: "𝕏 推特"        
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 专线手动选择
-      - 临时手动选择
-      - 专线自动选择
-      - 临时自动选择
-      - 🌏 亚洲节点
-      - 🌍 欧美节点
-      - 🌐 其他节点
-      - DIRECT
-  
-- name: "💰 加密货币"
-    type: select
-    proxies:
-    - 🚀 节点选择
-    - 专线手动选择
-    - 临时手动选择
-    - 专线自动选择
-    - 临时自动选择
-    - 🌏 亚洲节点
-    - 🌍 欧美节点
-    - 🌐 其他节点
-    - DIRECT
-  
-- name: "🎮 游戏平台"
-    type: select
-    proxies:
-    - 🚀 节点选择
-    - 专线手动选择
-    - 临时手动选择
-    - 专线自动选择
-    - 临时自动选择
-    - 🌏 亚洲节点
-    - 🌍 欧美节点
-    - 🌐 其他节点
-    - DIRECT
-
-- name: "📲 电报消息"
-    type: select
-    proxies:
-    - 🚀 节点选择
-    - 专线手动选择
-    - 临时手动选择
-    - 专线自动选择
-    - 临时自动选择
-    - 🌏 亚洲节点
-    - 🌍 欧美节点
-    - 🌐 其他节点
-    - DIRECT
-
-- name: "Ⓜ️ 微软服务"
-    type: select
-    proxies:
-    - 🚀 节点选择
-    - 专线手动选择
-    - 临时手动选择
-    - 专线自动选择
-    - 临时自动选择
-    - 🌏 亚洲节点
-    - 🌍 欧美节点
-    - 🌐 其他节点
-    - DIRECT
-
-- name: "🍎 苹果服务"
-    type: select
-    proxies:
-    - DIRECT
-    - 🚀 节点选择
-    - 专线手动选择
-    - 临时手动选择
-    - 专线自动选择
-    - 临时自动选择
-    - 🌏 亚洲节点
-    - 🌍 欧美节点
-    - 🌐 其他节点
-
-- name: "🌏 国内媒体"
-    type: select
-    proxies:
-    - DIRECT
-    - 🚀 节点选择
-    - 专线手动选择
-    - 临时手动选择
-    - 专线自动选择
-    - 临时自动选择
-    - 🌏 亚洲节点
-    - 🌍 欧美节点
-    - 🌐 其他节点
-
-- name: "🌍 国外媒体"
-    type: select
-    proxies:
-    - 🚀 节点选择
-    - 专线手动选择
-    - 临时手动选择
-    - 专线自动选择
-    - 临时自动选择
-    - 🌏 亚洲节点
-    - 🌍 欧美节点
-    - 🌐 其他节点
-    - DIRECT
-
-- name: "🎯 全球直连"
-    type: select
-    proxies:
-    - DIRECT
-    - 🚀 节点选择
-
-- name: "🛑 广告拦截"
-    type: select
-    proxies:
-    - REJECT
-    - DIRECT
-
-- name: "🐟 漏网之鱼"
-    type: select
-    proxies:
-    - 🎯 全球直连
-    - 🚀 节点选择
-    - 专线手动选择
-    - 临时手动选择
-    - 专线自动选择
-    - 临时自动选择
-    - 🌏 亚洲节点
-    - 🌍 欧美节点
-    - 🌐 其他节点
-
-rules:
-- DOMAIN-SUFFIX,openai.com,💬 OpenAI
-- DOMAIN-SUFFIX,ai.com,💬 OpenAI
-- DOMAIN-SUFFIX,anthropic.com,💬 OpenAI
-- DOMAIN-SUFFIX,claude.ai,💬 OpenAI
-
-- DOMAIN-KEYWORD,netflix,🎥 奈飞视频
-- DOMAIN-KEYWORD,youtube,📹 油管视频
-- DOMAIN-KEYWORD,google,🚀 节点选择
-- DOMAIN-KEYWORD,microsoft,Ⓜ️ 微软服务
-- DOMAIN-KEYWORD,telegram,📲 电报消息
-
-- DOMAIN-SUFFIX,steam.com,🎮 游戏平台
-- DOMAIN-SUFFIX,steamcontent.com,DIRECT
-- DOMAIN-SUFFIX,steamstatic.com,DIRECT
-- DOMAIN-SUFFIX,steamcdn-a.akamaihd.net,DIRECT
-- DOMAIN-SUFFIX,epicgames.com,🎮 游戏平台
-- DOMAIN-SUFFIX,sony.com,🎮 游戏平台
-- DOMAIN-SUFFIX,playstation.com,🎮 游戏平台
-- DOMAIN-SUFFIX,nintendo.com,🎮 游戏平台
-
-- DOMAIN-SUFFIX,apple.com,🍎 苹果服务
-- DOMAIN-SUFFIX,icloud.com,🍎 苹果服务
-- DOMAIN-SUFFIX,cdn-apple.com,🍎 苹果服务
-
-- DOMAIN-SUFFIX,twitter.com,𝕏 推特
-- DOMAIN-SUFFIX,twimg.com,𝕏 推特
-- DOMAIN-SUFFIX,t.co,𝕏 推特
-
-- DOMAIN-SUFFIX,binance.com,💰 加密货币
-- DOMAIN-SUFFIX,binancefuture.com,💰 加密货币
-- DOMAIN-SUFFIX,bnbstatic.com,DIRECT
-- DOMAIN-SUFFIX,okx.com,💰 加密货币
-- DOMAIN-SUFFIX,huobi.com,💰 加密货币
-- DOMAIN-SUFFIX,gate.io,💰 加密货币
-- DOMAIN-SUFFIX,kucoin.com,💰 加密货币
-- DOMAIN-SUFFIX,bybit.com,💰 加密货币
-
-- DOMAIN-SUFFIX,bilibili.com,🌏 国内媒体
-- DOMAIN-SUFFIX,bilivideo.com,🌏 国内媒体
-
-- GEOIP,CN,🎯 全球直连
-- DOMAIN-SUFFIX,cn,🎯 全球直连
-
-- MATCH,🐟 漏网之鱼
+;luck
