@@ -48,17 +48,18 @@ proxy-groups:
 
   - name: "专线自动选择"
     type: url-test
-    proxies:
-      {REPLACE-PROXIES-LINE-AUTO}
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
+    proxies:
+      {REPLACE-PROXIES-LINE-AUTO}
 
   - name: "临时自动选择"
     type: url-test
-    proxies:
-      {REPLACE-PROXIES-TEMPORARY-AUTO}
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
+    proxies:
+      {REPLACE-PROXIES-TEMPORARY-AUTO}
+
 
   - name: "🌏 亚洲节点"
     type: select
