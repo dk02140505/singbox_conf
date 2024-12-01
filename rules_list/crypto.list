@@ -1,1 +1,91 @@
+# 加密货币交易所规则集
+# Huobi
+DOMAIN-SUFFIX,huobi.com
+DOMAIN-SUFFIX,huobi.me
+DOMAIN-SUFFIX,huobi.pro
+DOMAIN-SUFFIX,huobi.sc
+DOMAIN-SUFFIX,huobigroup.com
 
+# 其他主流交易所
+DOMAIN-SUFFIX,kucoin.com
+DOMAIN-SUFFIX,kucoin.plus
+DOMAIN-SUFFIX,gate.io
+DOMAIN-SUFFIX,gateio.live
+DOMAIN-SUFFIX,gateio.services
+DOMAIN-SUFFIX,coinbase.com
+DOMAIN-SUFFIX,pro.coinbase.com
+DOMAIN-SUFFIX,bybit.com
+DOMAIN-SUFFIX,bybit.fund
+DOMAIN-SUFFIX,mexc.com
+DOMAIN-SUFFIX,mexc.link
+
+# 行情分析工具
+DOMAIN-SUFFIX,tradingview.com
+DOMAIN-SUFFIX,coingecko.com
+DOMAIN-SUFFIX,coinmarketcap.com
+DOMAIN-SUFFIX,dextools.io
+DOMAIN-SUFFIX,coincodex.com
+DOMAIN-SUFFIX,cryptowat.ch
+
+# DeFi平台
+DOMAIN-SUFFIX,pancakeswap.finance
+DOMAIN-SUFFIX,pancakeswap.info
+DOMAIN-SUFFIX,uniswap.org
+DOMAIN-SUFFIX,uniswap.exchange
+DOMAIN-SUFFIX,sushi.com
+DOMAIN-SUFFIX,curve.fi
+DOMAIN-SUFFIX,aave.com
+
+# 区块链浏览器
+DOMAIN-SUFFIX,etherscan.io
+DOMAIN-SUFFIX,bscscan.com
+DOMAIN-SUFFIX,polygonscan.com
+DOMAIN-SUFFIX,blockchain.com
+DOMAIN-SUFFIX,explorer.binance.org
+
+# 钱包服务
+DOMAIN-SUFFIX,metamask.io
+DOMAIN-SUFFIX,trustwallet.com
+DOMAIN-SUFFIX,phantom.app
+DOMAIN-SUFFIX,walletconnect.com
+
+# NFT平台
+DOMAIN-SUFFIX,opensea.io
+DOMAIN-SUFFIX,rarible.com
+DOMAIN-SUFFIX,niftygateway.com
+
+# DeFi 数据分析平台
+DOMAIN-SUFFIX,debank.com
+DOMAIN-SUFFIX,debank.live
+DOMAIN-SUFFIX,defillama.com
+DOMAIN-SUFFIX,llama.fi
+DOMAIN-SUFFIX,dexscreener.com
+DOMAIN-SUFFIX,geckoterminal.com
+DOMAIN-SUFFIX,dappradar.com
+DOMAIN-SUFFIX,defipulse.com
+DOMAIN-SUFFIX,defistation.io
+DOMAIN-SUFFIX,vfat.tools
+DOMAIN-SUFFIX,zapper.fi
+DOMAIN-SUFFIX,zerion.io
+DOMAIN-SUFFIX,1inch.io
+DOMAIN-SUFFIX,1inch.exchange
+DOMAIN-SUFFIX,chainlist.org
+DOMAIN-SUFFIX,chainlist.wtf
+
+# DeFi 聚合器
+DOMAIN-SUFFIX,matcha.xyz
+DOMAIN-SUFFIX,paraswap.io
+DOMAIN-SUFFIX,cowswap.exchange
+DOMAIN-SUFFIX,kyberswap.com
+DOMAIN-SUFFIX,thorswap.finance
+DOMAIN-SUFFIX,thorchain.org
+
+# 跨链桥
+DOMAIN-SUFFIX,stargate.finance
+DOMAIN-SUFFIX,hop.exchange
+DOMAIN-SUFFIX,across.to
+DOMAIN-SUFFIX,orbiter.finance
+DOMAIN-SUFFIX,cbridge.celer.network
+DOMAIN-SUFFIX,layerswap.io
+DOMAIN-SUFFIX,portalbridge.com
+DOMAIN-SUFFIX,wormhole.com
