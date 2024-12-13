@@ -89,3 +89,6 @@ DOMAIN-SUFFIX,cbridge.celer.network
 DOMAIN-SUFFIX,layerswap.io
 DOMAIN-SUFFIX,portalbridge.com
 DOMAIN-SUFFIX,wormhole.com
+
+#信用卡
+DOMAIN-SUFFIX,bitget.com
