@@ -6,6 +6,18 @@ DOMAIN-SUFFIX,huobi.pro
 DOMAIN-SUFFIX,huobi.sc
 DOMAIN-SUFFIX,huobigroup.com
 
+# Binance
+DOMAIN-SUFFIX,binance.com
+DOMAIN-SUFFIX,binance.cloud
+DOMAIN-SUFFIX,binance.me
+DOMAIN-SUFFIX,binance.us
+DOMAIN-SUFFIX,bnbstatic.com
+DOMAIN-SUFFIX,bntrace.com
+DOMAIN-SUFFIX,binancefuture.com
+DOMAIN-SUFFIX,binance.vision
+DOMAIN-SUFFIX,binance.info
+DOMAIN-SUFFIX,binance.charity
+
 # 其他主流交易所
 DOMAIN-SUFFIX,kucoin.com
 DOMAIN-SUFFIX,kucoin.plus
