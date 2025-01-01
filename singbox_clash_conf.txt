@@ -1,0 +1,30 @@
+[custom]
+;不要随意改变关键字，否则会导致出错
+;acl4SSR规则
+
+;去广告：支持
+;自动测速：支持
+;微软分流：支持
+;苹果分流：支持
+;增强中国IP段：支持
+;增强国外GFW：支持
+
+;设置规则标志位
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+
+ruleset=🚀 节点选择,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list
+;ruleset=🎯 全球直连,[]GEOIP,LAN
+ruleset=🎯 全球直连,[]GEOIP,CN
+ruleset=🐟 漏网之鱼,[]MATCH
+;设置规则标志位
+
+;设置分组标志位
+custom_proxy_group=🚀 节点选择`select`[]🌍 欧美节点`[]DIRECT
+custom_proxy_group=🌍 欧美节点`url-test`^(?!.*(特线|专线|普线)).*$(美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|Europe|US|United States|DE|德|德国|FR|法|法国|GB|英|英国)`http://www.gstatic.com/generate_204`300,,150
+
+custom_proxy_group=🐟 漏网之鱼`select`[]🚀 节点选择`[]🌍 欧美节点`[]DIRECT
+;设置分组标志位
